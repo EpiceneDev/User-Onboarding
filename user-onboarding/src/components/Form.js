@@ -6,13 +6,20 @@ import * as yup from 'yup';
 
 const UserForm = (props) => {
     console.log(props)
+    const { values, touched, errors } = props;
+
     return (
         <>
             <h1>Onboarding Form</h1>
             <Form>
+                {/* {props.touched.name && props.errors.name && <p className="error">{props.errors.name}</p>} */}
+                {touched.name && errors.name && <p className="error">{errors.name}</p>}
                 <Field type="text" name="name" placeholder="Your name here" />
+                {touched.email && errors.email && <p className="error">{errors.email}</p>}
                 <Field type="email" name="email" placeholder="Your email here" />
+                {touched.password && errors.password && <p className="error">{errors.password}</p>}
                 <Field type="password" name="password" placeholder="Password" />
+                {touched.tos && errors.tos && <p className="error">{errors.tos}</p>}
                 <label>
                     <Field type="checkbox" name="tos" />
                     I agree with the Terms of Service
