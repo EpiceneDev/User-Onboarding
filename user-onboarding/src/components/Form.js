@@ -1,29 +1,27 @@
 import React from 'react';
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form, Field } from 'formik';
 
 // Needed: {Name email: "", password: ""} checkbox and submit button
 
-const Form() {
+const UserForm = (props) => {
     return (
-        <div className = "loginForm" >{ console.log(user) }
-            <Form onSubmit = { event => handleSubmit(event) } >
-                <Label>Username:
-                    <input type = "text"
-                        name = "username"
-                        onChange = { event => handleChange(event) }
-                    /> 
-                </Label> 
-                <Label>Password:
-                    <input type = "text"
-                    name = "password"
-                    onChange = { event => handleChange(event) }
-                    />
-                </Label>
-                <button> Submit! </button> 
-            </Form> 
-        </div>
-    );
+        <h1>Onboarding Form</h1>
+      <Form>
+        <Field type="text" name="name" placeholder="Your name here" />
+        <Field type="email" name="email" placeholder="Your email here" />
+        <Field type="password" name="password" placeholder="Password" />
+      </Form> 
     );
 };
 
-export default Form;
+       
+///produces the component that gives the props
+const withFormik({
+    mapPropsToValues: ({ name, email, password }) => {
+        name: name || "",
+        email: email || "", 
+        password: password || ""
+    }
+})(UserForm);
+
+export default UserForm;
