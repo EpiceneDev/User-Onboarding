@@ -1,5 +1,6 @@
 import React from 'react';
 import { withFormik, Form, Field } from 'formik';
+import * as yup from 'yup';
 
 // Needed: {Name email: "", password: ""} checkbox and submit button
 
@@ -22,16 +23,30 @@ const UserForm = (props) => {
     );
 };
 
-       
+//Add validation schema after form looks good
 ///produces the component that gives the props
 const FormikForm = withFormik({
-    mapPropsToValues: ({ name, email, password }) => {
+    mapPropsToValues: ({ name, email, password, tos }) => {
         return {
             name: name || "",
             email: email || "", 
-            password: password || ""
+            password: password || "",
+            tos: tos || false
         }
-    }
+    },
+    validationSchema: yup.object().shape({
+        name: yup.string("Name")
+            .required("Name is required"),
+        email: yup.string()
+            .email("Valid email required")
+            .required("Need a valid email"),
+        password: yup.string()
+            .required("password is required")
+            .min(4, "Password must be at least 4 characters"),
+        tos: yup.boolean()
+            .oneOf([true], "Required")
+            .required("You must agree to ToS")
+    })
 })(UserForm);
 
 export default FormikForm;
