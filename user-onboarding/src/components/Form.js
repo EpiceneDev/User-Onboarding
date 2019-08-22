@@ -16,6 +16,7 @@ const UserForm = (props) => {
                     <Field type="checkbox" name="tos" />
                     I agree with the Terms of Service
                 </label>
+                <button type="submit">Submit</button>
             </Form> 
         </>
     );
