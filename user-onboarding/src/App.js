@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import UserForm from './components/Form.js';
+import Form from './components/Form.js';
 
 function App() {
     return ( 
         <div className = "App" >
-           
+           <Form />
         </div>
     );
 }
