@@ -1,23 +1,33 @@
 .App {
   text-align: center;
-  background-color: lightgrey;
+  height: 800px;
+  background-image: url('./tirza-van-dijk-aGx7X1VmFIY-unsplash.jpg');
+  background-size: cover;
+
 }
 
-form {
+Form {
   width: 80%;
   max-width: 500px;
   padding: 15px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
+  background-color: rgb(247, 232, 232);
 }
 
-form input {
+input {
   height: 20px;
   border-radius: 5%;
 }
 
 button {
-  max-width: 50px;
+  max-width: 100px;
   height: 30px;
+  color: white;
+  background-color: rgb(48, 75, 48);
+}
+
+legend {
+  color: rgb(194, 187, 187);
 }
