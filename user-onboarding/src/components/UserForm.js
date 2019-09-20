@@ -38,17 +38,19 @@ const UserForm = ({
             <labels>Email
                 <br />
                 { touched.email && errors.email && <p>{errors.email}</p> }   {/*This is the validation*/}
-                <Field type="email" name="email" placeholder="Email"  />
+                <Field type="email" name="email" />
             </labels>
-            {/* <label>
+
+            <label>Password
+                <br />
                 { touched.password && errors.password && <p>{errors.password}</p> }
-                <Field type="password" name="password" placeholder="Password"  />
-            </label> */}
-             <label>TOS<br/>I agree to let this company have all of my private information, regardless.
-                <Field component="select" name="agreement">
+                <Field type="password" name="password"  />
+            </label>
+            <hr/>
+            <label>TOS<br/>I agree to let this company have all of my private information, regardless, not holding them responsible.
+                <Field component="select" name="agreement" >
                     <option value="I agree to your TOS">Agree</option>
                     <option value="I do not agree with your TOS">Disagree</option>
-
                 </Field>
             </label>  
                 <button>Join us!</button>
