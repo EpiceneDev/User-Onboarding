@@ -1,9 +1,13 @@
 .App {
   text-align: center;
-  height: 800px;
+  height: 900px;
   background-image: url('./tirza-van-dijk-aGx7X1VmFIY-unsplash.jpg');
   background-size: cover;
 
+}
+
+body {
+  background-color: rgb(247, 232, 150);
 }
 
 Form {

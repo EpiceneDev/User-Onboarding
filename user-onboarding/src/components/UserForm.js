@@ -3,6 +3,7 @@ import { render } from 'react-dom'
 import { withFormik, Form, Field, setNestedObjectValues } from 'formik'
 import * as yup from 'yup'
 import styled from 'styled-components'
+import axios from 'axios'
 
 const labels = styled.label`
     background-color: yellow;
@@ -53,7 +54,7 @@ const UserForm = ({
                     <option value="I do not agree with your TOS">Disagree</option>
                 </Field>
             </label>  
-                <button>Join us!</button>
+                <button type="button">Join us!</button>
         </Form>
     )}
 
@@ -75,14 +76,14 @@ const FormikUserForm = withFormik({
         handleSubmit(values, { setStatus }) {
             console.log("values: ", values);
             setNestedObjectValues(values);
-            //get/post api's here
-            // axios   
-            //     .post("https://reqres.in/api/users/", values)
-            //     .then(res => {
-            //         console.log("POST res", res);
-            //         setNestedObjectValues(res.data);
-            //     })
-            //     .catch(err => console.log("ERROR API", err))
+            //get/post api's here or schedule a timer, etc
+            axios   
+                .post("https://reqres.in/api/users/", values)
+                .then(res => {
+                    console.log("POST res", res);
+                    setNestedObjectValues(res.data);
+                })
+                .catch(err => console.log("ERROR API", err))
         }   
 })(UserForm)
 
@@ -92,4 +93,3 @@ export default FormikUserForm
 
 
 render(<FormikUserForm name="" email="" password="" />, document.getElementById('root'))
-
